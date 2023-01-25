@@ -5,7 +5,7 @@
         public function insertar_caso($usu_id,$sede_id,$caso_date,$caso_time,$caso_titulo,$caso_descripcion){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "INSERT INTO caso(caso_id,usu_id,sede_id,caso_date,caso_time,caso_titulo,caso_descripcion,flag) VALUES (NULL,?,?,?,?,?,?,1)";
+            $sql = "INSERT INTO caso(caso_id,usu_id,sede_id,caso_date,caso_time,caso_titulo,caso_descripcion,flag) VALUES (NULL,?,?,?,?,?,?,1);";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $usu_id);
             $sql->bindValue(2, $sede_id);

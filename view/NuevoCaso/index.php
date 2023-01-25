@@ -41,11 +41,10 @@ if (isset($_SESSION["usu_id"])) {
 						Desde esta ventana podra generar nuevos casos.
 					</p>
 					<h5 class="m-t-lg with-border">Ingresar información</h5>
-					<form action="" method="POST" id="caso_form">
 
-						<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
-						<div class="row">
-
+					<div class="row">
+						<form action="" method="POST" id="caso_form">
+							<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
 							<div class="col-lg-4">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="caso_date">Fecha (*)</label>
@@ -63,7 +62,7 @@ if (isset($_SESSION["usu_id"])) {
 							<div class="col-lg-4">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="sede_id">Sede (*)</label>
-									<select name="sede_id"  id="sede_id" class="form-control"></select>
+									<select name="sede_id" id="sede_id" class="form-control"></select>
 								</fieldset>
 							</div>
 
@@ -102,21 +101,22 @@ if (isset($_SESSION["usu_id"])) {
 									<label class="form-label semibold" for="caso_titulo">Título (*)</label>
 									<input type="text" class="form-control" id="caso_titulo" name="caso_titulo" placeholder="Ingrese el título">
 								</fieldset>
-							</div>				
+							</div>
 
 							<div class="col-lg-12">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="caso_descripcion">Descripción (*)</label>
 									<div class="summernote-theme-1">
-										<textarea class="summernote" name="name" id="caso_descripcion" name="caso_descripcion"></textarea>
+										<textarea class="summernote"  id="caso_descripcion" name="caso_descripcion"></textarea>
 									</div>
 								</fieldset>
 							</div>
 							<div class="col-lg-12">
 								<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button> <!--Le coloco un name y un value-->
 							</div>
-						</div><!--.row-->
-					</form>
+						</form>
+					</div><!--.row-->
+
 				</div>
 			</div><!--.container-fluid-->
 		</div><!--.page-content-->

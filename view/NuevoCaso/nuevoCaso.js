@@ -19,9 +19,9 @@ $(document).ready(function() {
     });
 
     //CODIGO PARA EL COMBO DE TIPO DOCUMENTO DE LA VENTANA NUEVO CASO
-    $.post("../../controller/tipo_documento.php?op1=combo1", function(data, status){
-        $('#tipo_docu_id').html(data);
-    });
+    // $.post("../../controller/tipo_documento.php?op1=combo1", function(data, status){
+    //     $('#tipo_docu_id').html(data);
+    // });
 });
 
 
