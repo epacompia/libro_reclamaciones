@@ -28,5 +28,12 @@
 	<link rel="stylesheet" href="../../public/css/lib/bootstrap-sweetalert/sweetalert.css">
 	<link rel="stylesheet" href="../../public/css/separate/vendor/sweet-alert-animations.min.css">
 
+
+	<!-- AGREGANDO SCRIPT PARA QUE FUNCIONE DATATABLES -->
+	<link rel="stylesheet" href="../../public/css/lib/datatables-net/datatables.min.css">
+	<link rel="stylesheet" href="../../public/css/separate/vendor/datatables-net.min.css">
+
+	
+
     <link rel="stylesheet" href="../../public/css/main.css">
 </head>

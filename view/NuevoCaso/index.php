@@ -45,21 +45,21 @@ if (isset($_SESSION["usu_id"])) {
 					<div class="row">
 						<form action="" method="POST" id="caso_form">
 							<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
-							<div class="col-lg-4">
+							<div class="col-lg-6">
 								<fieldset class="form-group">
-									<label class="form-label semibold" for="caso_date">Fecha (*)</label>
-									<input type="date" class="form-control" id="caso_date" name="caso_date" placeholder="Ingrese el título">
+									<label class="form-label semibold" for="caso_date">Fecha y Hora (*)</label>
+									<input type="datetime-local" class="form-control" id="caso_date" name="caso_date" placeholder="Ingrese el título">
 								</fieldset>
 							</div>
 
-							<div class="col-lg-4">
+							<!-- <div class="col-lg-4">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="caso_time">Hora (*)</label>
-									<input type="time" class="form-control" id="caso_time" name="caso_time" placeholder="Ingrese el título">
+									<input type="datetime-local" class="form-control" id="caso_time" name="caso_time" placeholder="Ingrese el título">
 								</fieldset>
-							</div>
+							</div> -->
 
-							<div class="col-lg-4">
+							<div class="col-lg-6">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="sede_id">Sede (*)</label>
 									<select name="sede_id" id="sede_id" class="form-control"></select>

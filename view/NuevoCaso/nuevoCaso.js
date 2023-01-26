@@ -39,7 +39,6 @@ function guardaryeditar(e){
 		success: function(datos){
 			//console.log(datos);
 			$('#caso_date').val('');
-			$('#caso_time').val('');
 			$('#caso_titulo').val(''); //AQUI LLAMO A LOS CAMPOS DESPUES DE QUE SE EJECUTO EL AJAX PARA LIMPIAR SUS CAJAS Y DEJARLO EN VACIO DESPUES DE AGREGAR
 			$('#caso_descripcion').summernote('reset'); //AQUI BORRO LA INFORMACION DEL TEXAREA LLAMANDO A SUMMERNOTE PARA LIMPIARLO Y RESET
 
