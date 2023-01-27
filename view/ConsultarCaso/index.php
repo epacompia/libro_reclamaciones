@@ -41,7 +41,7 @@ if (isset($_SESSION["usu_id"])) {
 						<thead>
 							<tr>
 								<th style="width: 10%;">N° Caso</th>
-								<th style="width: 15%;">Fecha y Hora</th>
+								<th style="width: 15%;">Fecha y Hora del incidente</th>
 								<th style="width: 15%;">Sede</th>
 								<th class="d-none d-sm-table-cell" style="width: 25%;">Titulo</th>
 								<th class="text-center" style="width: 15%;"></th>
