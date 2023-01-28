@@ -42,11 +42,19 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
+
+
+              
+
                 <form class="sign-box" action="" method="POST" id="login_form">
+              
+                    <input type="hidden" id="rol_id" name="rol_id" value="1">  <!--ESTO ES PARA DIFERENCIAR EL ROL ID  sera 1 para usuario y 2 para soporte-->
+
+                    
                     <div class="sign-avatar">
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
-                    <header class="sign-title">Ingreso</header>
+                    <header class="sign-title" id="lbltitulo">Acceso Usuario</header>
 
                     <!-- VALIDACION PREVIA PARA MOSTRAR ERRORES DE LOS CAMPOS DE LOGIN -->
                     <?php
@@ -94,6 +102,9 @@
                         <div class="float-right reset">
                             <a href="reset-password.html">Cambiar contraseña</a>
                         </div>
+                        <div class="float-left reset">
+                            <a href="#" id="btnsoporte">Acceso Soporte</a>
+                        </div>
                     </div>
                     <input type="hidden" name="enviar" value="si">
                     <button type="submit" class="btn btn-rounded">Ingresar</button>
@@ -131,6 +142,7 @@
         });
     </script>
     <script src="public/js/app.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

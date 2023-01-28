@@ -273,7 +273,12 @@
 	                                <span class="label label-pill label-danger">35</span>
 	                            </a>
 	                        </div> -->
-	
+							
+
+							<input type="hidden" id="user_idx" value="<?php echo $_SESSION["usu_id"] ?>">
+							<input type="hidden" id="rol_idx" value="<?php echo $_SESSION["rol_id"] ?>">
+							
+							
 	                        <div class="dropdown dropdown-typical">
 	                            <a class="dropdown-toggle" id="dd-header-form-builder" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                                <span class="font-icon font-icon-user"></span>
