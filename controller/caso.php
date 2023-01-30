@@ -17,6 +17,13 @@
             $sub_array[] = $row["caso_date"];
             $sub_array[] = $row["sede_nombre"];
             $sub_array[] = $row["caso_titulo"];
+            
+            if ($row["caso_estado"]=="Abierto") {
+                $sub_array[] = '<span class="label label-pill label-success">Abierto</span>';
+                }else {   
+                    $sub_array[] = '<span class="label label-pill label-danger">Cerrado</span>';
+                }
+            
             // $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion"])); //lo omito ya que si lo pongo se mostrara en mi datatable 
             $sub_array[]='<button type="button" onClick="ver(' . $row["caso_id"] . ');" id="' . $row["caso_id"] . '" class="btn btn-inline btn-primary btn-sm ladda-buttom"><div><i class="fa fa-eye"></i></div></button>'; //CREO ESTE BOTON 
             $data[] = $sub_array;
@@ -42,6 +49,13 @@
                 $sub_array[] = $row["caso_date"];
                 $sub_array[] = $row["sede_nombre"];
                 $sub_array[] = $row["caso_titulo"];
+
+                if ($row["caso_estado"]=="Abierto") {
+                    $sub_array[] = '<span class="label label-pill label-success">Abierto</span>';
+                    }else {   
+                        $sub_array[] = '<span class="label label-pill label-danger">Cerrado</span>';
+                    }
+
                 // $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion"])); //lo omito ya que si lo pongo se mostrara en mi datatable 
                 $sub_array[]='<button type="button" onClick="ver(' . $row["caso_id"] . ');" id="' . $row["caso_id"] . '" class="btn btn-inline btn-primary btn-sm ladda-buttom"><div><i class="fa fa-eye"></i></div></button>'; //CREO ESTE BOTON 
                 $data[] = $sub_array;

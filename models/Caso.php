@@ -5,7 +5,7 @@
         public function insertar_caso($usu_id,$sede_id,$caso_date,$caso_titulo,$caso_descripcion){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "INSERT INTO caso(caso_id,usu_id,sede_id,caso_date,caso_titulo,caso_descripcion,fecha_creacion,flag) VALUES (NULL,?,?,?,?,?,now(),1);";
+            $sql = "INSERT INTO caso(caso_id,usu_id,sede_id,caso_date,caso_titulo,caso_descripcion,caso_estado,fecha_creacion,flag) VALUES (NULL,?,?,?,?,?,?,'Abierto',now(),1);";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $usu_id);
             $sql->bindValue(2, $sede_id);
@@ -27,6 +27,7 @@
             caso.caso_date,
             caso.caso_titulo,
             caso.caso_descripcion,
+            caso.caso_estado,
             caso.fecha_creacion, /*agrego este campo para saber cuando se creo el ticket ojo no es lo mismo que saber cuando sucedio el incidente del reclamo*/
             usuario.usu_nombre,
             usuario.usu_apellido,
@@ -53,6 +54,7 @@
             caso.caso_date,
             caso.caso_titulo,
             caso.caso_descripcion,
+            caso.caso_estado,
             caso.fecha_creacion, /*agrego este campo para saber cuando se creo el ticket ojo no es lo mismo que saber cuando sucedio el incidente del reclamo*/
             usuario.usu_nombre,
             usuario.usu_apellido,
