@@ -17,7 +17,7 @@
             return $resultado = $sql->fetchAll();
         }
 
-
+        //FUNCION PARA QUE CADA USUARIO VEA SU CASO POR SU ID
         public function listar_caso_x_usu($usu_id){
             $conectar = parent::conexion();
             $sql = "SELECT 
@@ -38,6 +38,30 @@
             AND usuario.usu_id=?";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+
+        //ESTA FUNCION ME LISTA LOS TICKET PARA Q LO VEA EL PEROSNAL DE SOPORTE
+        public function listar_ticket(){
+            $conectar = parent::conexion();
+        $sql = "SELECT 
+            caso.caso_id,
+            caso.usu_id,
+            caso.sede_id,
+            caso.caso_date,
+            caso.caso_titulo,
+            caso.caso_descripcion,
+            caso.fecha_creacion, /*agrego este campo para saber cuando se creo el ticket ojo no es lo mismo que saber cuando sucedio el incidente del reclamo*/
+            usuario.usu_nombre,
+            usuario.usu_apellido,
+            sede.sede_nombre
+            FROM caso 
+            INNER JOIN sede ON caso.sede_id=sede.sede_id
+            INNER JOIN usuario on caso.usu_id=usuario.usu_id
+            WHERE caso.flag=1";
+            $sql = $conectar->prepare($sql);
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }

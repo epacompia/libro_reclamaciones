@@ -275,7 +275,7 @@
 	                        </div> -->
 							
 
-							<input type="hidden" id="user_idx" value="<?php echo $_SESSION["usu_id"] ?>">
+							<input type="hidden" id="usu_idx" value="<?php echo $_SESSION["usu_id"] ?>">
 							<input type="hidden" id="rol_idx" value="<?php echo $_SESSION["rol_id"] ?>">
 							
 							
