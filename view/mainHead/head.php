@@ -21,7 +21,9 @@
     <link rel="stylesheet" href="../../public/css/lib/bootstrap/bootstrap.min.css">
 
 	
-	
+	<!-- INICIO DE ESTILOS PARA DETALLECASO.PHP -->
+	<link rel="stylesheet" href="../../public/css/separate/vendor/fancybox.min.css">
+	<link rel="stylesheet" href="../../public/css/separate/pages/activity.min.css">
 	
 
 	<!-- AQUI COPIO EL CSS DE MI SWEET ALERT ARRIBA DE MI main.css  -->

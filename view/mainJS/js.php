@@ -12,3 +12,15 @@
 <script src="../../public/js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script src="../../public/js/lib/summernote/summernote.min.js"></script>
 
+
+<!--ESTO ES PARA QUE FUNCIONE LA PAGINA DETALLECASO.PHP-->
+<script src="js/lib/fancybox/jquery.fancybox.pack.js"></script>
+	<script>
+		$(function() {
+			$(".fancybox").fancybox({
+				padding: 0,
+				openEffect	: 'none',
+				closeEffect	: 'none'
+			});
+		});
+</script>

@@ -68,6 +68,27 @@
             return $resultado = $sql->fetchAll();
         }
 
+
+         //FUNCION PARA QUE CADA USUARIO VEA SU CASO POR SU ID
+         public function listar_casodetalle_x_caso($caso_id){
+            $conectar = parent::conexion();
+            $sql = "SELECT 
+            td_casodetalle.caso_id,
+            td_casodetalle.casodetalle_descrip,
+            td_casodetalle.fech_crea,
+            usuario.usu_nombre,
+            usuario.usu_apellido
+            FROM 
+            td_casodetalle 
+            INNER JOIN usuario on td_casodetalle.usu_id=usuario.usu_id
+            where caso_id=?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1, $caso_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+
     }
 
 ?>
