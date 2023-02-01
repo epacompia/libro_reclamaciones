@@ -15,7 +15,7 @@
 
 <!--ESTO ES PARA QUE FUNCIONE LA PAGINA DETALLECASO.PHP-->
 <script src="js/lib/fancybox/jquery.fancybox.pack.js"></script>
-	<script>
+	<!-- <script>
 		$(function() {
 			$(".fancybox").fancybox({
 				padding: 0,
@@ -23,4 +23,4 @@
 				closeEffect	: 'none'
 			});
 		});
-</script>
+</script> -->

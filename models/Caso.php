@@ -69,7 +69,7 @@
         }
 
 
-         //FUNCION PARA QUE CADA USUARIO VEA SU CASO POR SU ID
+         //FUNCION PARA QUE CADA USUARIO VEA SU CASO POR SU ID OSEA SU DETALLETICKET video 30 
          public function listar_casodetalle_x_caso($caso_id){
             $conectar = parent::conexion();
             $sql = "SELECT 
