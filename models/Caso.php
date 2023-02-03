@@ -77,7 +77,8 @@
             td_casodetalle.casodetalle_descrip,
             td_casodetalle.fech_crea,
             usuario.usu_nombre,
-            usuario.usu_apellido
+            usuario.usu_apellido,
+            usuario.rol_id
             FROM 
             td_casodetalle 
             INNER JOIN usuario on td_casodetalle.usu_id=usuario.usu_id
