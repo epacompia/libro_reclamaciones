@@ -13,6 +13,12 @@ $(document).ready(function() {
         //console.log(data);   // esto es para ver que me lo imprima 5 veces
         $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
      });
+
+     //CODIGO PARA EL SUMMERNOTE DE MI VISTA DETALLETICEKT.PHP
+     $('#casodetalle_descrip').summernote({
+        height:350
+    });
+
 });
 
 
