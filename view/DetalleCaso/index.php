@@ -27,9 +27,9 @@ if (isset($_SESSION["usu_id"])) {
                         <div class="tbl-row">
                             <div class="tbl-cell">
                                 <h3>Detalle Caso - 1</h3>
-                                <span class="label label-pill label-danger">Cerrado</span>
-                                <span class="label label-pill label-primary">Nombre del usuario</span>
-                                <span class="label label-pill label-default">Fecha de creacion</span>
+                                <div id="lbl_estado"></span>
+                                <span class="label label-pill label-primary" id="lbl_nomusuario"></span>
+                                <span class="label label-pill label-default" id="lbl_fechcreacion">Fecha de creacion</span>
                                 <ol class="breadcrumb breadcrumb-simple">
                                     <li><a href="#">Inicio</a></li>
                                     <li class="active">Detalle caso</li>

@@ -14,6 +14,19 @@ $(document).ready(function() {
         $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
      });
 
+
+     $.post("../../controller/ticket.php?op=mostrar", {tick_id : tick_id}, function (data){
+        data=JSON.parse(data);
+        $('#lbl_estado').html(data.caso_estado);
+        $('#lbl_nomusuario').html(data.usu_nombre + ' ' + data.usu_apellido);
+        $('#lbl_fechcreacion').html(data.fecha_creacion);
+        $('#lbldetalle').html(data);
+        $('#lbldetalle').html(data);
+     });
+
+
+
+
      //CODIGO PARA EL SUMMERNOTE DE MI VISTA DETALLETICEKT.PHP
      $('#casodetalle_descrip').summernote({
         height:350,

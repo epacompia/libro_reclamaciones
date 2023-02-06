@@ -122,5 +122,38 @@
                 ?>
         <?php
     break;
+
+
+    case "mostrar":
+        $datos = $ticket->listar_ticket_x_id($_POST["tick_id"]);
+        if(is_array($datos)==true and count($datos)>0){
+            foreach($datos as $row){
+                $output["caso_id"] = $row["caso_id"];
+                $output["usu_id"] = $row["caso_id"];
+                $output["sede_id"] = $row["caso_id"];
+                $output["caso_date"] = $row["caso_id"];
+
+                $output["caso_titulo"] = $row["caso_id"];
+                $output["caso_descripcion"] = $row["caso_id"];
+                if($row["caso_id"]=="Abierto"){
+                    $output["caso_estado"] ='<span class="label label-pill label-success">Abierto</span>';
+                }else{
+                    $output["caso_estado"] ='<span class="label label-pill label-danger">Cerrado</span>';
+                }
+
+                
+                $output["fecha_creacion"] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion "]));
+
+                $output["usu_nombre"] = $row["caso_id"];
+                $output["usu_apellido"] = $row["caso_id"];
+                $output["sede_nombre"] = $row["caso_id"];
+            }
+        }
+        
+        
+        break;
+
+
+
     }
 ?>
