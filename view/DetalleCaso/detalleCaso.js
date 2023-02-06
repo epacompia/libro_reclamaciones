@@ -16,7 +16,8 @@ $(document).ready(function() {
 
      //CODIGO PARA EL SUMMERNOTE DE MI VISTA DETALLETICEKT.PHP
      $('#casodetalle_descrip').summernote({
-        height:350
+        height:350,
+        lang:"es-ES",
     });
 
 });
