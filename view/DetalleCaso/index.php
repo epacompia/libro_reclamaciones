@@ -29,7 +29,7 @@ if (isset($_SESSION["usu_id"])) {
                                 <h3>Detalle Caso - 1</h3>
                                 <div id="lbl_estado"></span>
                                 <span class="label label-pill label-primary" id="lbl_nomusuario"></span>
-                                <span class="label label-pill label-default" id="lbl_fechcreacion">Fecha de creacion</span>
+                                <span class="label label-pill label-default" id="lbl_fechcreacion"></span>
                                 <ol class="breadcrumb breadcrumb-simple">
                                     <li><a href="#">Inicio</a></li>
                                     <li class="active">Detalle caso</li>

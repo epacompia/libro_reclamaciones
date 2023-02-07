@@ -91,35 +91,30 @@
 
 
 
-        public function listar_caso_x_id($tick_id){
+        public function listar_caso_x_id($caso_id){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="SELECT 
-                tm_ticket.tick_id,
-                tm_ticket.usu_id,
-                tm_ticket.cat_id,
-                tm_ticket.tick_titulo,
-                tm_ticket.tick_descrip,
-                tm_ticket.tick_estado,
-                tm_ticket.fech_crea,
-                tm_usuario.usu_nom,
-                tm_usuario.usu_ape,
-                tm_categoria.cat_nom
-                FROM 
-                tm_ticket
-                INNER join tm_categoria on tm_ticket.cat_id = tm_categoria.cat_id
-                INNER join tm_usuario on tm_ticket.usu_id = tm_usuario.usu_id
-                WHERE
-                tm_ticket.est = 1
-                AND tm_ticket.tick_id = ?";
+            caso.caso_id,
+            caso.usu_id,
+            caso.sede_id,
+            caso.caso_titulo,
+            caso.caso_descripcion,
+            caso.caso_estado,
+            caso.fecha_creacion,
+            usuario.usu_nombre,
+            usuario.usu_apellido,
+            sede.sede_nombre
+            FROM caso
+            INNER JOIN sede on caso.sede_id=sede.sede_id
+            INNER JOIN usuario on caso.usu_id=usuario.usu_id
+            WHERE caso.flag=1
+            AND caso.caso_id = ?";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1, $tick_id);
+            $sql->bindValue(1, $caso_id);
             $sql->execute();
-            return $resultado=$sql->fetchAll();
-        }
-    
-
-
+            return $resultado=$sql->fetchAll(pdo::FETCH_ASSOC);
+        } 
     }
 
 ?>
