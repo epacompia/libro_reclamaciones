@@ -113,7 +113,7 @@
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $caso_id);
             $sql->execute();
-            return $resultado=$sql->fetchAll(pdo::FETCH_ASSOC);
+            return $resultado=$sql->fetchAll();
         } 
     }
 
