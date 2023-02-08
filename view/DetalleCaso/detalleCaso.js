@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 
      $.post("../../controller/caso.php?op=mostrar", {caso_id : caso_id}, function (data){
-        console.log(data);
+        //console.log(data);
         data=JSON.parse(data);
         $('#lbl_estado').html(data.caso_estado);
         //console.log(data.caso_estado);

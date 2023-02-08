@@ -148,6 +148,8 @@
                 $output["usu_apellido"] = $row["usu_apellido"];
                 $output["sede_nombre"] = $row["sede_nombre"];
             }
+
+            echo json_encode($output);
         }
         
         
