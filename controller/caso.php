@@ -136,9 +136,9 @@
                 $output["caso_titulo"] = $row["caso_titulo"];
                 $output["caso_descripcion"] = $row["caso_descripcion"];
                 if($row["caso_estado"]=="Abierto"){
-                    $output["caso_estado"] ='<span class="label label-pill label-success">Abierto</span>';
+                    $output["caso_estado"] = '<span class="label label-pill label-success">Abierto</span>';
                 }else{
-                    $output["caso_estado"] ='<span class="label label-pill label-danger">Cerrado</span>';
+                    $output["caso_estado"] = '<span class="label label-pill label-danger">Cerrado</span>';
                 }
 
                 

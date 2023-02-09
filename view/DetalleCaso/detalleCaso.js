@@ -22,13 +22,25 @@ $(document).ready(function() {
         //console.log(data.caso_estado);
         $('#lbl_nomusuario').html(data.usu_nombre + ' ' + data.usu_apellido);
         $('#lbl_fechcreacion').html(data.fecha_creacion);
-     });
+        $('#lbl_nomidcaso').html("Detalle Caso -" + data.caso_id);
+     
+        $('#sede_nombre').val(data.sede_nombre);
+        $('#caso_titulo').val(data.caso_titulo);
+        $('#casodetalle_descrip_usu').summernote('code',data.caso_descripcion);
+    
+    });
 
 
 
 
      //CODIGO PARA EL SUMMERNOTE DE MI VISTA DETALLETICEKT.PHP
      $('#casodetalle_descrip').summernote({
+        height:350,
+        lang:"es-ES",
+    });
+
+
+    $('#casodetalle_descrip_usu').summernote({
         height:350,
         lang:"es-ES",
     });
