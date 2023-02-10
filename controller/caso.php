@@ -155,7 +155,9 @@
         
         break;
 
-
+        case 'insert_casodetalle':
+            $caso->insertar_caso_detalle($_POST["caso_id"], $_POST["usu_id"], $_POST["casodetalle_descrip"]);
+            break;
 
     }
 ?>

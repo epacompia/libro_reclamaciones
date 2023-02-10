@@ -90,8 +90,8 @@ if (isset($_SESSION["usu_id"])) {
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
-                            <button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Enviar</button> <!--Le coloco un name y un value-->
-                            <button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-danger">Cerrar Ticket</button>
+                            <button type="button"  id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button> <!--Le coloco un name y un value-->
+                            <button type="button"  id="btncerrar" class="btn btn-rounded btn-inline btn-danger">Cerrar Ticket</button>
                         </div>
 
                     </div><!--.row-->

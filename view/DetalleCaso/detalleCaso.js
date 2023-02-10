@@ -45,6 +45,9 @@ $(document).ready(function() {
         lang:"es-ES",
     });
 
+    //ESTE CODIGO ES PARA DESABILITAR LA EDICION DEL SUMMERNOTE dentro de detallecaso.js
+    $('#casodetalle_descrip_usu').summernote('disable');
+
 });
 
 
