@@ -8,15 +8,12 @@ function init(){
 $(document).ready(function() {
     var caso_id = getUrlParameter('ID');
     //console.log(id);
-    //AQUI LE PASO ESTO PARA QUE SELECCIONE MI listardetalle de mi ticket.php y le paso como parametro el id del ticket  
-     $.post("../../controller/caso.php?op=listardetalle", {caso_id : caso_id}, function (data){
-        //console.log(data);   // esto es para ver que me lo imprima 5 veces
-        $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
-     });
-
+    
+    //FUNCTION PARA LISTAR DETALLE DEL TICKET VER COMENTARIOS
+    listardetalle(caso_id);
 
      $.post("../../controller/caso.php?op=mostrar", {caso_id : caso_id}, function (data){
-        console.log(data);
+        //console.log(data);
         data=JSON.parse(data);
         $('#lbl_estado').html(data.caso_estado);
         //console.log(data.caso_estado);
@@ -71,5 +68,34 @@ var getUrlParameter = function getUrlParameter(sParam){
     }
 };
 
+
+
+//LLAMANDO A LOS BOTONES PARA GUARDAR Y CERRAR CASODETALLE cuando comenten el ticket
+$(document).on("click","#btnenviar",function(){
+    var caso_id=getUrlParameter('ID');
+    var usu_id= $('#usu_idx').val();
+    var casodetalle_descrip=$('#casodetalle_descrip').val();
+    $.post("../../controller/caso.php?op=insert_casodetalle", {caso_id : caso_id, usu_id:usu_id, casodetalle_descrip:casodetalle_descrip}, function (data){
+        //console.log("test3");
+        listardetalle(caso_id); //CODIGO PARA LISTAR DETALLE EN AJAX LO LISTA INMEDIATAMENTE
+        $('#casodetalle_descrip').summernote('reset'); 
+        swal("Correcto!","Registrado Correctamente","success");
+    });
+});
+
+$(document).on("click","#btncerrar",function(){
+    console.log("test2");
+});
+
+
+
+//FUNCION PARA LSITAR COMENTARIOS DE EL TICKET OSEA LISTARDETALLE 
+function listardetalle(caso_id){
+    //AQUI LE PASO ESTO PARA QUE SELECCIONE MI listardetalle de mi ticket.php y le paso como parametro el id del ticket  
+    $.post("../../controller/caso.php?op=listardetalle", {caso_id : caso_id}, function (data){
+        //console.log(data);   // esto es para ver que me lo imprima 5 veces
+        $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
+     });
+}
 
 init();
