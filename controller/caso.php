@@ -135,12 +135,16 @@
 
                 $output["caso_titulo"] = $row["caso_titulo"];
                 $output["caso_descripcion"] = $row["caso_descripcion"];
+
+            
                 if($row["caso_estado"]=="Abierto"){
                     $output["caso_estado"] = '<span class="label label-pill label-success">Abierto</span>';
                 }else{
                     $output["caso_estado"] = '<span class="label label-pill label-danger">Cerrado</span>';
                 }
 
+
+                $output["caso_estado_texto"] = $row["caso_estado"];
                 
                 $output["fecha_creacion"] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion"]));
 
@@ -159,5 +163,11 @@
             $caso->insertar_caso_detalle($_POST["caso_id"], $_POST["usu_id"], $_POST["casodetalle_descrip"]);
             break;
 
+
+        case 'update':
+            $caso->update_caso($_POST["caso_id"]);
+            $caso->insertar_caso_detalle_cerrar($_POST["caso_id"],$_POST["usu_id"]);
+            break;
+        
     }
 ?>

@@ -40,7 +40,7 @@ if (isset($_SESSION["usu_id"])) {
                 </header>
 
                 <!-- AGREGANDO DATOS DEL CASO ACTUAL  -->
-                <div class="box-typical box-typical-padding">
+                <div class="box-typical box-typical-padding" >
                     <div class="row">
 
                         <div class="col-lg-6">
@@ -78,7 +78,7 @@ if (isset($_SESSION["usu_id"])) {
                 </section><!--.activity-line-->
 
 
-                <div class="box-typical box-typical-padding">
+                <div class="box-typical box-typical-padding" id="pnldetallecaso">
                     <p>Ingresar su duda o consulta</p>
                     <div class="row">
                         <div class="col-lg-12">

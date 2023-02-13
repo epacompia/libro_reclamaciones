@@ -30,11 +30,6 @@ $(document).ready(function() {
 function guardaryeditar(e){
 	e.preventDefault(); //para que no se dispare varias veces el boton
 	var formData=new FormData($("#caso_form")[0]);
-
-	//CODIGO PARA VALIDAR QUE NO ESTE VACIO EL TITULO NI LA DESCRIPCION
-	if ($('#caso_descripcion').summernote('isEmpty') || $('#caso_date').val()=='' || $('#caso_titulo').val()=='') {
-		swal("Advertencia!","Campos vacios","warning");
-	}else{	
 	$.ajax({
 		url:"../../controller/caso.php?op=insert",
 		type: "POST",
@@ -50,7 +45,6 @@ function guardaryeditar(e){
 			swal("Correcto!","Registrado Correctamente","success");  //con esta linea de codigo agrego el sweet alert
 		}
 	});
-   }
  }
 
 

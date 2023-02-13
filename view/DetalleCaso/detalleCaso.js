@@ -24,7 +24,11 @@ $(document).ready(function() {
         $('#sede_nombre').val(data.sede_nombre);
         $('#caso_titulo').val(data.caso_titulo);
         $('#casodetalle_descrip_usu').summernote('code',data.caso_descripcion);
-    
+        console.log(data.caso_estado_texto);
+        if(data.caso_estado_texto =="Cerrado"){
+            $('#pnldetallecaso').hide();
+        }
+        
     });
 
 
@@ -75,16 +79,59 @@ $(document).on("click","#btnenviar",function(){
     var caso_id=getUrlParameter('ID');
     var usu_id= $('#usu_idx').val();
     var casodetalle_descrip=$('#casodetalle_descrip').val();
+
+    if ($('#casodetalle_descrip').summernote('isEmpty')){
+        swal("Advertencia!","Falta llenar su comentario","warning");
+    }else{
     $.post("../../controller/caso.php?op=insert_casodetalle", {caso_id : caso_id, usu_id:usu_id, casodetalle_descrip:casodetalle_descrip}, function (data){
         //console.log("test3");
         listardetalle(caso_id); //CODIGO PARA LISTAR DETALLE EN AJAX LO LISTA INMEDIATAMENTE
         $('#casodetalle_descrip').summernote('reset'); 
         swal("Correcto!","Registrado Correctamente","success");
     });
+    }
 });
 
 $(document).on("click","#btncerrar",function(){
-    console.log("test2");
+    //console.log("test2");
+     //CODIGO CON SWEETALERT SACADO DE MI TEMPLATE QUE COPIE Y PEGUE AQUI 
+     swal({
+        title: "Informática - DIRCOCOR",
+        text: "Esta seguro de cerrar el caso?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-warning",
+        confirmButtonText: "Si, Cerrar caso",
+        cancelButtonText: "No!",
+        closeOnConfirm: false,
+        //closeOnCancel: false
+    },
+    function(isConfirm) {
+        if (isConfirm) {
+            var caso_id = getUrlParameter('ID');
+            var usu_id = $('#usu_idx').val(); // llamo este usu id para poder cerrar el ticekt y ver quien lo cerro 
+            //ESTE CODIGO ES PARA ACTUALIZAR PRIMERO EL ESTADO A CERRADO DEL TICKET DESPUES DE CONFIRMAR EL CERRADO
+            $.post("../../controller/caso.php?op=update",{caso_id : caso_id, usu_id:usu_id}, function (data) {
+                
+             });
+
+             listardetalle(caso_id); //LLAMO A MI FUNCION LISTARDETALLE
+            swal({
+                title: "Caso Cerrado!",
+                text: "Te llegara un correo con la constancia de cerrado",
+                type: "success",
+                confirmButtonClass: "btn-success"
+            });
+        } 
+        else {
+            swal({
+                title: "Cancelado",
+                text: "Se canceló el cierre del caso",
+                type: "error",
+                confirmButtonClass: "btn-danger"
+            });
+        }
+    });
 });
 
 
