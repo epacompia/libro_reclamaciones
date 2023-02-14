@@ -191,6 +191,12 @@ if ($_SESSION["rol_id"] == 1) {
 			</a>
 		</li> -->
 		<li class="blue-dirty">
+			<a href="..\MantenimientoUsuarios\">
+				<span class="glyphicon glyphicon-th"></span>
+				<span class="lbl">Mantenimiento Usuarios</span>
+			</a>
+		</li>
+		<li class="blue-dirty">
 			<a href="..\ConsultarCaso\">
 				<span class="glyphicon glyphicon-th"></span>
 				<span class="lbl">Consultar Caso</span>

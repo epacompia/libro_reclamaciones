@@ -40,6 +40,59 @@
             }
         }
 
+        public function insert_usuario($usu_nombre,$usu_apellido,$usu_correo,$usu_password,$rol_id,$usu_celular,$usu_tipo_documento,$usu_numero_documento,$fech_nacimiento){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "INSERT INTO usuario(usu_nombre,usu_apellido,usu_correo,usu_password,rol_id,usu_celular,usu_tipo_documento,usu_numero_documento,fech_nacimiento,fech_creacion,fech_modificacion,fech_eliminacion,flag) VALUES
+            (?,?,?,?,?,?,?,?,?,now(),NULL,NULL,1);";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_nombre);
+            $sql->bindValue(2,$usu_apellido);
+            $sql->bindValue(3,$usu_correo);
+            $sql->bindValue(4,$usu_password);
+            $sql->bindValue(5,$rol_id);
+            $sql->bindValue(7,$usu_celular);
+            $sql->bindValue(8,$usu_tipo_documento);
+            $sql->bindValue(9,$usu_numero_documento);
+            $sql->bindValue(1,$fech_nacimiento);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        public function update_usuario(){
+            
+        }
+
+        
+        public function delete_usuario($usu_id){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "UPDATE usuario SET flag=0 where usu_id=?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        
+        public function get_usuario(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT * FROM usuario where flag=1";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+        
+        public function get_usuario_x_id($usu_id){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT * FROM usuario where usu_id=?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
     }
 
 ?>
