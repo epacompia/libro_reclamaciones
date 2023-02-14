@@ -52,7 +52,7 @@
 
                     
                     <div class="sign-avatar">
-                        <img src="public/img/avatar-sign.png" alt="">
+                        <img src="public/img/1.jpg" id="imgtipo" alt="">
                     </div>
                     <header class="sign-title" id="lbltitulo">Acceso Usuario</header>
 
