@@ -12,24 +12,7 @@ $(document).ready(function() {
     //FUNCTION PARA LISTAR DETALLE DEL TICKET VER COMENTARIOS
     listardetalle(caso_id);
 
-     $.post("../../controller/caso.php?op=mostrar", {caso_id : caso_id}, function (data){
-        //console.log(data);
-        data=JSON.parse(data);
-        $('#lbl_estado').html(data.caso_estado);
-        //console.log(data.caso_estado);
-        $('#lbl_nomusuario').html(data.usu_nombre + ' ' + data.usu_apellido);
-        $('#lbl_fechcreacion').html(data.fecha_creacion);
-        $('#lbl_nomidcaso').html("Detalle Caso -" + data.caso_id);
-     
-        $('#sede_nombre').val(data.sede_nombre);
-        $('#caso_titulo').val(data.caso_titulo);
-        $('#casodetalle_descrip_usu').summernote('code',data.caso_descripcion);
-        console.log(data.caso_estado_texto);
-        if(data.caso_estado_texto =="Cerrado"){
-            $('#pnldetallecaso').hide();
-        }
-        
-    });
+    
 
 
 
@@ -143,6 +126,26 @@ function listardetalle(caso_id){
         //console.log(data);   // esto es para ver que me lo imprima 5 veces
         $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
      });
+
+
+     $.post("../../controller/caso.php?op=mostrar", {caso_id : caso_id}, function (data){
+        //console.log(data);
+        data=JSON.parse(data);
+        $('#lbl_estado').html(data.caso_estado);
+        //console.log(data.caso_estado);
+        $('#lbl_nomusuario').html(data.usu_nombre + ' ' + data.usu_apellido);
+        $('#lbl_fechcreacion').html(data.fecha_creacion);
+        $('#lbl_nomidcaso').html("Detalle Caso -" + data.caso_id);
+     
+        $('#sede_nombre').val(data.sede_nombre);
+        $('#caso_titulo').val(data.caso_titulo);
+        $('#casodetalle_descrip_usu').summernote('code',data.caso_descripcion);
+        console.log(data.caso_estado_texto);
+        if(data.caso_estado_texto =="Cerrado"){
+            $('#pnldetallecaso').hide();
+        }
+        
+    });
 }
 
 init();
