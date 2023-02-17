@@ -37,15 +37,17 @@ if (isset($_SESSION["usu_id"])) {
 				</header>
 
 				<div class="box-typical box-typical-padding">
-				<table id="caso_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
+				<table id="usuario_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
 						<thead>
 							<tr>
-								<th style="width: 10%;">N° Caso</th>
-								<th style="width: 15%;">Fecha y Hora del incidente</th>
-								<th style="width: 15%;">Sede</th>
-								<th class="d-none d-sm-table-cell" style="width: 25%;">Titulo</th>
-								<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
-								<th class="text-center" style="width: 15%;"></th>
+								<th style="width: 10%;">Nombre(s)</th>
+								<th style="width: 15%;">Apellido(s)</th>
+								<th style="width: 20%;">Correo</th>
+								<th class="d-none d-sm-table-cell" style="width: 15%;">Password</th>
+								<th class="d-none d-sm-table-cell" style="width: 10%;">Celular</th>
+								<th class="text-center" style="width: 10%;">Rol</th>
+								<th class="text-center" style="width: 5%;"></th>
+								<th class="text-center" style="width: 5%;"></th>
 								
 							</tr>
 						</thead>
@@ -58,7 +60,7 @@ if (isset($_SESSION["usu_id"])) {
 		</div><!--.page-content-->
 
 		<?php require_once("../mainJS/js.php") ?>
-		<script type="text/javascript" src="consultarCaso.js"></script> <!--LLAMO AL consultarCaso.js de mi carpeta -->
+		<script type="text/javascript" src="mantenimientousuarios.js"></script> <!--LLAMO AL consultarCaso.js de mi carpeta -->
 	</body>
 
 	</html>

@@ -27,10 +27,10 @@
                 $sub_array[] = $row["usu_celular"];
 
                 //PARA MOSTRARS EL ROL DE EL USUARI
-                if ($row["usu_rol"]==1) {
+                if ($row["rol_id"]==1) {
                     $sub_array[]='<span class="label label-pill label-primary">Usuario</span>';
                 }else{
-                    $sub_array[]='<span class="label label-pill label-primary">Soporte</span>';
+                    $sub_array[]='<span class="label label-pill label-success">Soporte</span>';
                 }
 
                 // $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion"])); //lo omito ya que si lo pongo se mostrara en mi datatable 
