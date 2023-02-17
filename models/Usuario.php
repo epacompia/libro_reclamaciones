@@ -43,8 +43,8 @@
         public function insert_usuario($usu_nombre,$usu_apellido,$usu_correo,$usu_password,$rol_id,$usu_celular,$usu_tipo_documento,$usu_numero_documento,$fech_nacimiento){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "INSERT INTO usuario(usu_nombre,usu_apellido,usu_correo,usu_password,rol_id,usu_celular,usu_tipo_documento,usu_numero_documento,fech_nacimiento,fech_creacion,fech_modificacion,fech_eliminacion,flag) VALUES
-            (?,?,?,?,?,?,?,?,?,now(),NULL,NULL,1);";
+            $sql = "INSERT INTO usuario(usu_id,usu_nombre,usu_apellido,usu_correo,usu_password,rol_id,usu_celular,usu_tipo_documento,usu_numero_documento,fech_nacimiento,fech_creacion,fech_modificacion,fech_eliminacion,flag) VALUES
+            (NULL,?,?,?,?,?,?,?,?,?,now(),NULL,NULL,1);";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1,$usu_nombre);
             $sql->bindValue(2,$usu_apellido);
