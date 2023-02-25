@@ -68,6 +68,23 @@ $(document).ready(function(){
 function editar(usu_id){
  //llamo a mi modal pero le paso para el titulo editar registro y luego lo muestro con modal
  $('#mdltitulo').html('Editar registro');
+ $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id}, function (data) {
+    console.log(data);
+    
+    data = JSON.parse(data);
+    $('#usu_id').val(data.usu_id);
+    $('#usu_nombre').val(data.usu_nombre);
+    $('#usu_apellido').val(data.usu_apellido);
+    $('#usu_correo').val(data.usu_correo);
+    $('#usu_password').val(data.usu_password);
+    $('#rol_id').val(data.rol_id).trigger('change');
+    $('#usu_celular').val(data.usu_celular);
+    $('#usu_tipo_documento').val(data.usu_tipo_documento).trigger('change');
+    $('#usu_numero_documento').val(data.usu_numero_documento);
+    $('#fech_nacimiento').val(data.fech_nacimiento);    
+    
+}); 
+ 
  $('#modalmantenimiento').modal('show');
  console.log(usu_id);
 }

@@ -60,7 +60,18 @@
                         $output["usu_nombre"] = $row["usu_nombre"];                        
                         $output["usu_apellido"] = $row["usu_apellido"];
                         $output["usu_correo"] = $row["usu_correo"];
+                        
+                        $output["usu_password"] = $row["usu_password"];
+                        $output["rol_id"] = $row["rol_id"];
+
                         $output["usu_celular"] = $row["usu_celular"];
+
+                        $output["usu_tipo_documento"] = $row["usu_tipo_documento"];
+                        $output["usu_numero_documento"] = $row["usu_numero_documento"];
+                        $output["fech_nacimiento"] = $row["fech_nacimiento"];
+                        //$output["fech_nacimiento"] = date("d/m/Y H:i:s", strtotime($row["fech_nacimiento"]));
+
+
                     }
         
                     echo json_encode($output);

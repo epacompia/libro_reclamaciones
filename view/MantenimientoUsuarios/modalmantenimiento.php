@@ -10,28 +10,50 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label" for="usu_nom">Nombre</label>
-                    <input type="text" class="form-control" id="usu_nom" placeholder="Ingrese el nombre" required>
+                    <input type="text" class="form-control" id="usu_nombre" name="usu_nombre" placeholder="Ingrese el nombre" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="usu_ape">Apellido</label>
-                    <input type="text" class="form-control" id="usu_ape" placeholder="Ingrese los apellidos" required>
+                    <input type="text" class="form-control" id="usu_apellido" name="usu_apellido"  placeholder="Ingrese los apellidos" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="usu_correo">Correo</label>
-                    <input type="email" class="form-control" id="usu_correo" placeholder="example@example.com" required>
+                    <input type="email" class="form-control" id="usu_correo" name="usu_correo" placeholder="example@example.com" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="usu_pass">Contraseña</label>
-                    <input type="text" class="form-control" id="usu_pass" placeholder="Ingrese la contraseña" required>
+                    <input type="text" class="form-control" id="usu_password"  name="usu_password" placeholder="Ingrese la contraseña" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="rol_id">Rol</label>
-                    <select id="exampleSelect" class="form-control">
-                        <option>Usuario</option>
-                        <option>Soporte</option>
-                    </select>
+                        <label class="form-label" for="rol_id">Rol</label>
+                        <select class="select2" id="rol_id" name="rol_id">
+                            <option value="1">Usuario</option>
+                            <option value="2">Soporte</option>
+                        </select>
                 </div>
-                
+
+                <div class="form-group">
+                    <label class="form-label" for="usu_celular">Celular</label>
+                    <input type="text" class="form-control" id="usu_celular" name="usu_celular" placeholder="Ingrese la contraseña" required>
+                </div>
+
+                <div class="form-group">
+                        <label class="form-label" for="usu_tipo_documento">Tipo de documento</label>
+                        <select class="select2" id="usu_tipo_documento" name="usu_tipo_documento">
+                            <option value="DNI">DNI</option>
+                            <option value="CEDULA">CEDULA</option>
+                            <option value="CARNET_DE_EXTRANJERIA">CARNET_DE_EXTRANJERIA</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="usu_numero_documento">N° de documento</label>
+                    <input type="text" class="form-control" id="usu_numero_documento" name="usu_numero_documento"  placeholder="Ingrese los apellidos" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="fech_nacimiento">Fecha de Nac.</label>
+                    <input type="date" class="form-control" id="fech_nacimiento" name="fech_nacimiento"  placeholder="Ingrese los apellidos" required>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Cerrar</button>
