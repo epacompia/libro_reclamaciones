@@ -7,9 +7,9 @@
     switch ($_GET["op"]) {
         case "guardaryeditar":
                if (empty($_POST["usu_id"])) {
-                   if(is_array($datos)==true and count($datos)==0){
-                       $usuario->insert_usuario($_POST["usu_nombre"],$_POST["usu_apellido"],$_POST["usu_correo"],$_POST["usu_password"],$_POST["rol_id"],$_POST["usu_celular"],$_POST["usu_tipo_documento"],$_POST["usu_numero_documento"],$_POST["fech_nacimiento"]);
-                   }
+                 
+                    $usuario->insert_usuario($_POST["usu_nombre"],$_POST["usu_apellido"],$_POST["usu_correo"],$_POST["usu_password"],$_POST["rol_id"],$_POST["usu_celular"],$_POST["usu_tipo_documento"],$_POST["usu_numero_documento"],$_POST["fech_nacimiento"]);
+                   
                }else{
                    $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nombre"],$_POST["usu_apellido"],$_POST["usu_correo"],$_POST["usu_password"],$_POST["rol_id"],$_POST["usu_celular"],$_POST["usu_tipo_documento"],$_POST["usu_numero_documento"],$_POST["fech_nacimiento"]);
                }
@@ -68,8 +68,8 @@
 
                         $output["usu_tipo_documento"] = $row["usu_tipo_documento"];
                         $output["usu_numero_documento"] = $row["usu_numero_documento"];
-                        $output["fech_nacimiento"] = $row["fech_nacimiento"];
-                        //$output["fech_nacimiento"] = date("d/m/Y H:i:s", strtotime($row["fech_nacimiento"]));
+                        //$output["fech_nacimiento"] = $row["fech_nacimiento"];
+                        $output["fech_nacimiento"] = date("d/m/Y", strtotime($row["fech_nacimiento"]));
 
 
                     }
