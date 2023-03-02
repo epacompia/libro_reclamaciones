@@ -69,11 +69,11 @@
             $sql->bindValue(3,$usu_correo);
             $sql->bindValue(4,$usu_password);
             $sql->bindValue(5,$rol_id);
-            $sql->bindValue(7,$usu_celular);
-            $sql->bindValue(8,$usu_tipo_documento);
-            $sql->bindValue(9,$usu_numero_documento);
-            $sql->bindValue(10,$fech_nacimiento);
-            $sql->bindValue(11,$usu_id);
+            $sql->bindValue(6,$usu_celular);
+            $sql->bindValue(7,$usu_tipo_documento);
+            $sql->bindValue(8,$usu_numero_documento);
+            $sql->bindValue(9,$fech_nacimiento);
+            $sql->bindValue(10,$usu_id);
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
