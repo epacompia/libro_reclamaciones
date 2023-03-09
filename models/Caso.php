@@ -156,6 +156,60 @@
             return $resultado = $sql->fetchAll();
         }
 
+
+
+
+        //PAR LA VISTA DE SOPORTE AHORA CREAREMOS SU DASHBOARD
+        //TOTAL TICKETS
+        public function get_caso_total(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM caso";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        //TOTAL TICKETS ABIERTOS
+        public function get_caso_totalabiertos(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM caso WHERE  caso_estado='Abierto'";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        //TOTAL TICKETS CERRADOS
+        public function get_ticket_totalcerrados(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM caso WHERE caso_estado='Cerrado'";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+
+
+        //PARA EL GRAFICO AHORA DEL DASHBOARD
+        //ESTE QUERY ME CUENTA POR SEDE CUANTAS CASOS  HA HABIDO
+        public function get_ticket_grafico(){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT sede.sede_nombre as sede, COUNT(*) AS total 
+            FROM caso JOIN 
+            sede ON caso.sede_id= sede.sede_id 
+            WHERE caso.flag =1 
+            GROUP BY
+            sede.sede_nombre
+            ORDER BY total DESC";
+
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
     }
 
 ?>

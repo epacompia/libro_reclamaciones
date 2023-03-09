@@ -168,6 +168,49 @@
             $caso->update_caso($_POST["caso_id"]);
             $caso->insertar_caso_detalle_cerrar($_POST["caso_id"],$_POST["usu_id"]);
             break;
+
+
+        
+
+    
+
+        //CASOS PARA EL DASHBOARD 3 CUADROS: TOTAL, ABIERTOS  Y CERRADOS
+       case "total";
+       $datos = $caso->get_caso_total();
+       if(is_array($datos) == true and count($datos)>0){
+           foreach($datos as $row){
+               $output["TOTAL"] = $row["TOTAL"];
+           }
+           echo json_encode($output);
+       }
+       break;
+
+       case "totalabiertos";
+       $datos = $caso->get_caso_totalabiertos();
+       if(is_array($datos) == true and count($datos)>0){
+           foreach($datos as $row){
+               $output["TOTAL"] = $row["TOTAL"];
+           }
+           echo json_encode($output);
+       }
+       break;
+
+       case "totalcerrados";
+       $datos = $caso->get_ticket_totalcerrados();
+       if(is_array($datos) == true and count($datos)>0){
+           foreach($datos as $row){
+               $output["TOTAL"] = $row["TOTAL"];
+           }
+           echo json_encode($output);
+       }
+       break;
+
+
+       //SERVICIO PARA LOS GRAFICOS PARA DIBUJAR LA GRAFICA
+       case "grafico";
+            $datos=$caso->get_ticket_grafico();
+            echo json_encode($datos);
+        break;
         
     }
 ?>

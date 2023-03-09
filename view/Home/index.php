@@ -23,6 +23,7 @@
 
 	<div class="page-content">
 		<div class="container-fluid">
+			<!-- aqui va mi contenido -->
 			<div class="row">
 					<div class="col-xl-12">
 						<div class="row">
@@ -31,7 +32,7 @@
 									<div>
 										<div class="number" id="lbltotal"></div>
 										<div class="caption">
-											<div>Total de tickets</div>
+											<div>Total de casos</div>
 										</div>
 									</div>
 								</article>
@@ -42,7 +43,7 @@
 									<div>
 										<div class="number" id="lbltotalabiertos"></div>
 										<div class="caption">
-											<div>Total de tickets Abiertos</div>
+											<div>Total de casos Abiertos</div>
 										</div>
 									</div>
 								</article>
@@ -53,7 +54,7 @@
 									<div>
 										<div class="number" id="lbltotalcerrados"></div>
 										<div class="caption">
-											<div>Total de tickets Cerrados</div>
+											<div>Total de casos Cerrados</div>
 										</div>
 									</div>
 								</article>

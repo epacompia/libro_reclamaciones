@@ -124,6 +124,7 @@
         }
 
         //TOTAL TICKETS ABIERTOS
+        
         public function get_usuario_totalabiertos_x_id($usu_id){
             $conectar = parent::conexion();
             parent::set_names();
@@ -144,6 +145,29 @@
             $sql->execute();
             return $resultado = $sql->fetchAll();
         }
+        
+        //PARA EL GRAFICO AHORA DEL DASHBOARD
+        //ESTE QUERY ME CUENTA POR SEDE CUANTAS CASOS  HA HABIDO
+        public function get_usuario_grafico($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT sede.sede_nombre as sede, COUNT(*) AS total 
+            FROM caso JOIN 
+            sede ON caso.sede_id= sede.sede_id 
+            WHERE caso.flag =1 
+            and caso.usu_id =?
+            GROUP BY
+            sede.sede_nombre
+            ORDER BY total DESC";
+
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        
+        
     }
 
 ?>

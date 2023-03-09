@@ -16,28 +16,28 @@
                break;
 
         case "listar":
-            $datos = $usuario->get_usuario();
-            $data = array();
-            foreach($datos as $row){
-                $sub_array = array();
-                $sub_array[] = $row["usu_nombre"];
-                $sub_array[] = $row["usu_apellido"];
-                $sub_array[] = $row["usu_correo"];
-                $sub_array[] = $row["usu_password"];
-                $sub_array[] = $row["usu_celular"];
+                $datos = $usuario->get_usuario();
+                $data = array();
+                foreach($datos as $row){
+                    $sub_array = array();
+                    $sub_array[] = $row["usu_nombre"];
+                    $sub_array[] = $row["usu_apellido"];
+                    $sub_array[] = $row["usu_correo"];
+                    $sub_array[] = $row["usu_password"];
+                    $sub_array[] = $row["usu_celular"];
 
-                //PARA MOSTRARS EL ROL DE EL USUARI
-                if ($row["rol_id"]==1) {
-                    $sub_array[]='<span class="label label-pill label-primary">Usuario</span>';
-                }else{
-                    $sub_array[]='<span class="label label-pill label-success">Soporte</span>';
+                    //PARA MOSTRARS EL ROL DE EL USUARI
+                    if ($row["rol_id"]==1) {
+                        $sub_array[]='<span class="label label-pill label-primary">Usuario</span>';
+                    }else{
+                        $sub_array[]='<span class="label label-pill label-success">Soporte</span>';
+                    }
+
+                    // $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion"])); //lo omito ya que si lo pongo se mostrara en mi datatable 
+                    $sub_array[]='<button type="button" onClick="editar(' . $row["usu_id"] . ');" id="' . $row["usu_id"] . '" class="btn btn-inline btn-warning btn-sm ladda-buttom"><div><i class="fa fa-edit"></i></div></button>'; //CREO ESTE BOTON 
+                    $sub_array[]='<button type="button" onClick="eliminar(' . $row["usu_id"] . ');" id="' . $row["usu_id"] . '" class="btn btn-inline btn-danger btn-sm ladda-buttom"><div><i class="fa fa-trash"></i></div></button>';
+                    $data[] = $sub_array;
                 }
-
-                // $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fecha_creacion"])); //lo omito ya que si lo pongo se mostrara en mi datatable 
-                $sub_array[]='<button type="button" onClick="editar(' . $row["usu_id"] . ');" id="' . $row["usu_id"] . '" class="btn btn-inline btn-warning btn-sm ladda-buttom"><div><i class="fa fa-edit"></i></div></button>'; //CREO ESTE BOTON 
-                $sub_array[]='<button type="button" onClick="eliminar(' . $row["usu_id"] . ');" id="' . $row["usu_id"] . '" class="btn btn-inline btn-danger btn-sm ladda-buttom"><div><i class="fa fa-trash"></i></div></button>';
-                $data[] = $sub_array;
-            }
     
             //Para usar el DATATABLE
             $results= array(
@@ -48,13 +48,13 @@
             echo json_encode($results);
             break;
 
-        case 'eliminar':
-            $usuario->delete_usuario($_POST["usu_id"]);
+            case 'eliminar':
+                $usuario->delete_usuario($_POST["usu_id"]);
             break;
         
-        case "mostrar":
-            $datos = $usuario->get_usuario_x_id($_POST["usu_id"]);
-            if(is_array($datos)==true and count($datos)>0){
+            case "mostrar":
+                $datos = $usuario->get_usuario_x_id($_POST["usu_id"]);
+                if(is_array($datos)==true and count($datos)>0){
                 foreach($datos as $row){
                         $output["usu_id"] = $row["usu_id"];
                         $output["usu_nombre"] = $row["usu_nombre"];                        
@@ -83,13 +83,13 @@
 
             //CASOS PARA EL DASHBOARD 3 CUADROS: TOTAL, ABIERTOS  Y CERRADOS
         case "total";
-        $datos = $usuario->get_usuario_total_x_id($_POST["usu_id"]);
-        if(is_array($datos) == true and count($datos)>0){
-            foreach($datos as $row){
-                $output["TOTAL"] = $row["TOTAL"];
+            $datos = $usuario->get_usuario_total_x_id($_POST["usu_id"]);
+            if(is_array($datos) == true and count($datos)>0){
+                foreach($datos as $row){
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
             }
-            echo json_encode($output);
-        }
         break;
 
         case "totalabiertos";
@@ -111,4 +111,13 @@
             echo json_encode($output);
         }
         break;
+
+
+
+        //SERVICIO PARA LOS GRAFICOS PARA DIBUJAR LA GRAFICA
+        case "grafico";
+        $datos=$usuario->get_usuario_grafico($_POST["usu_id"]);
+        echo json_encode($datos);
+        break;
+         
     }
