@@ -147,7 +147,7 @@
         public function insertar_caso_detalle_cerrar($caso_id,$usu_id){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql="INSERT INTO td_casodetalle(casodetalle_id,caso_id,usu_id,casodetalle_descrip,fech_crea,flag) VALUES (NULL,?,?,'El caso ha sido cerrado',now(),'1');";
+            $sql="call sp_i_casodetalle_01(?,?)";
             //$sql = "INSERT INTO caso(caso_id,usu_id,sede_id,caso_date,caso_titulo,caso_descripcion,caso_estado,fecha_creacion,flag) VALUES (NULL,?,?,?,?,?,'Abierto',now(),1);";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1, $caso_id);

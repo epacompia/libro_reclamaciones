@@ -14,7 +14,7 @@
                     header("Location:" . Conectar::ruta() . "index.php?m=2");
                     exit();
                 }else{
-                    $sql = "SELECT * FROM usuario WHERE usu_correo=? and usu_password=? and rol_id=? and flag=1";
+                    $sql = "SELECT * FROM usuario WHERE usu_correo=? and usu_password=MD5(?) and rol_id=? and flag=1";
                     $stmt = $conectar->prepare($sql);
                     $stmt->bindValue(1, $correo);
                     $stmt->bindValue(2, $password);
@@ -44,7 +44,7 @@
             $conectar = parent::conexion();
             parent::set_names();
             $sql = "INSERT INTO usuario(usu_id,usu_nombre,usu_apellido,usu_correo,usu_password,rol_id,usu_celular,usu_tipo_documento,usu_numero_documento,fech_nacimiento,fech_creacion,fech_modificacion,fech_eliminacion,flag) VALUES
-            (NULL,?,?,?,?,?,?,?,?,?,now(),NULL,NULL,1);";
+            (NULL,?,?,?,MD5(?),?,?,?,?,?,now(),NULL,NULL,1);";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1,$usu_nombre);
             $sql->bindValue(2,$usu_apellido);
@@ -93,7 +93,7 @@
         public function get_usuario(){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "SELECT * FROM usuario where flag=1";
+            $sql = "call sp_l_usuario_01()";
             $sql = $conectar->prepare($sql);
             $sql->execute();
             return $resultado = $sql->fetchAll();
@@ -102,7 +102,7 @@
         public function get_usuario_x_id($usu_id){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "SELECT * FROM usuario where usu_id=?";
+            $sql = "call sp_l_usuario_02(?)";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1,$usu_id);
             $sql->execute();
