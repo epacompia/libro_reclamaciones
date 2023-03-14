@@ -1,11 +1,11 @@
 <?php
-    require_once("config/conexion.php");
+require_once("config/conexion.php");
 
-    if (isset($_POST["enviar"]) and $_POST["enviar"] =="si") {
-        require_once("models/Usuario.php");
-        $usuario = new Usuario();
-        $usuario->login();
-    }
+if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
+    require_once("models/Usuario.php");
+    $usuario = new Usuario();
+    $usuario->login();
+}
 ?>
 
 
@@ -44,13 +44,24 @@
             <div class="container-fluid">
 
 
-              
+                <!-- TITULO DEL INDEX -->
+                <div>
+                    <h2 style=" color: #616161;text-shadow: #e0e0e0 1px 1px 0;text-align: center;"><b>LIBRO DE RECLAMACIONES VIRTUAL - DIRCOCOR PNP</b></h2>
+                </div>
 
+                <!-- LOGO POLICIAL DE LA DIRCOCOR -->
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-sm-12 text-center">
+                        <img  style="max-width: 300px;margin-bottom: 20px;"  src="public/img/logodircocor.png">
+                        </div>
+                    </div>                    
+                </div>
                 <form class="sign-box" action="" method="POST" id="login_form">
-              
-                    <input type="hidden" id="rol_id" name="rol_id" value="1">  <!--ESTO ES PARA DIFERENCIAR EL ROL ID  sera 1 para usuario y 2 para soporte-->
 
-                    
+                    <input type="hidden" id="rol_id" name="rol_id" value="1"> <!--ESTO ES PARA DIFERENCIAR EL ROL ID  sera 1 para usuario y 2 para soporte-->
+
+
                     <div class="sign-avatar">
                         <img src="public/img/1.jpg" id="imgtipo" alt="">
                     </div>
@@ -58,34 +69,33 @@
 
                     <!-- VALIDACION PREVIA PARA MOSTRAR ERRORES DE LOS CAMPOS DE LOGIN -->
                     <?php
-                        if (isset($_GET["m"])) {
-                            switch ($_GET["m"]) {
-                                case '1':
-                                    ?>
-                                    <div class="alert alert-success alert-fill alert-close alert-dismissible fade in" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        El usuario y/o la contraseña son incorrectos
-                                    </div>
+                    if (isset($_GET["m"])) {
+                        switch ($_GET["m"]) {
+                            case '1':
+                    ?>
+                                <div class="alert alert-success alert-fill alert-close alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    El usuario y/o la contraseña son incorrectos
+                                </div>
 
-                                    <?php
-                                    break;
-                                    case '2':
-                                        ?>
-                                        <div class="alert alert-success alert-fill alert-close alert-dismissible fade in" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                            Los campos estan vacios
-                                        </div>
-    
-                                        <?php
-                                        break;
-                                
-                            }
+                            <?php
+                                break;
+                            case '2':
+                            ?>
+                                <div class="alert alert-success alert-fill alert-close alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    Los campos estan vacios
+                                </div>
+
+                    <?php
+                                break;
                         }
-                        
+                    }
+
                     ?>
 
                     <div class="form-group">
